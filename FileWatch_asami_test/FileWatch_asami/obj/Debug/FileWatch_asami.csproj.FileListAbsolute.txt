@@ -1,0 +1,6 @@
+C:\Users\bske0\Desktop\FileWatch_asami\FileWatch_asami\obj\Debug\FileWatch_asami.csprojAssemblyReference.cache
+C:\Users\bske0\Desktop\FileWatch_asami\FileWatch_asami\obj\Debug\Views\MainWindow.g.cs
+C:\Users\bske0\Desktop\FileWatch_asami\FileWatch_asami\obj\Debug\App.g.cs
+C:\Users\bske0\Desktop\FileWatch_asami\FileWatch_asami\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\bske0\Desktop\FileWatch_asami\FileWatch_asami\obj\Debug\FileWatch_asami_MarkupCompile.cache
+C:\Users\bske0\Desktop\FileWatch_asami\FileWatch_asami\obj\Debug\FileWatch_asami_MarkupCompile.lref

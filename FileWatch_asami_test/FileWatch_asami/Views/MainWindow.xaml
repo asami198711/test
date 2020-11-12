@@ -1,0 +1,70 @@
+﻿<Window x:Class="FileWatch_asami.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FileWatch_asami"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="450" 
+        Width="800"
+        xmlns:vm="clr-namespace:FileWatch_asami.ViewModels"
+        ResizeMode="NoResize"
+        >
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
+    <Grid>
+        <!-- ファイルがrenameなどにより存在しない場合には背景色を灰色にする -->
+        <DataGrid 
+            Height="374" 
+            Margin="0,10,0,0" 
+            VerticalAlignment="Top"
+            VerticalScrollBarVisibility="Visible"
+            HorizontalScrollBarVisibility="Visible"
+            IsReadOnly="True"
+            x:Name="dataGrid"
+            ItemsSource="{Binding Path=Items}"
+            SelectedItem="{Binding Path=SelectedItem}"
+            AutoGenerateColumns="False"
+            >
+            <DataGrid.ItemContainerStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <!-- isExistがFalseの時は背景を灰色にする -->
+                        <DataTrigger Binding="{Binding isExist}" Value="False">
+                            <Setter Property="Background" Value="Gray" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.ItemContainerStyle>
+            <DataGrid.Columns>
+
+                <DataGridTextColumn
+                    Binding="{Binding FilePath}"
+                    Header="ファイルパス"
+                />
+                <DataGridTextColumn 
+                    Binding="{Binding UpdateDay}"
+                    Header="更新日"
+                />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button 
+            Content="追加" 
+            HorizontalAlignment="Left" 
+            Margin="10,389,0,0" 
+            VerticalAlignment="Top" 
+            Width="75"
+            Command="{Binding Path=AddFileCommand}" 
+            />
+        <Button 
+            Content="削除" 
+            HorizontalAlignment="Left" 
+            Margin="113,389,0,0" 
+            VerticalAlignment="Top" 
+            Width="75"
+            Command="{Binding Path=DeleteFileCommand}" 
+            />
+    </Grid>
+</Window>
